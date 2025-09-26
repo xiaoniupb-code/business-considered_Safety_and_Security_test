@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>业务分类与关键广义功能安全需求映射</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="按业务类型、应用场景、关键广义功能安全需求进行映射与筛选的交互式表格" />
+</head>
+<body>
+  <header class="header">
+    <h1>业务分类与关键广义功能安全需求 映射</h1>
+    <p class="subtitle">支持按业务类型、应用场景、关键需求进行筛选与交叉映射</p>
+  </header>
+
+  <main class="container">
+    <!-- 控件区 -->
+    <section class="controls">
+      <div class="control-group">
+        <label for="searchInput">搜索（支持多关键词空格分隔）</label>
+        <input id="searchInput" type="text" placeholder="例如：快速 响应 安全性" />
+      </div>
+
+      <div class="control-row">
+        <div class="control-group">
+          <label for="typeFilter">业务类型</label>
+          <select id="typeFilter">
+            <option value="">全部</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sceneFilter">应用场景</label>
+          <select id="sceneFilter">
+            <option value="">全部</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="needFilter">关键需求</label>
+          <select id="needFilter">
+            <option value="">全部</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <button id="resetBtn" class="btn">重置</button>
+        <button id="exportBtn" class="btn primary">导出当前结果为 CSV</button>
+      </div>
+    </section>
+
+    <!-- 映射视图 -->
+    <section class="mapping">
+      <div class="mapping-column">
+        <h3>按 业务类型 映射</h3>
+        <div id="typeChips" class="chips"></div>
+      </div>
+      <div class="mapping-column">
+        <h3>按 应用场景 映射</h3>
+        <div id="sceneChips" class="chips"></div>
+      </div>
+      <div class="mapping-column">
+        <h3>按 关键需求 映射</h3>
+        <div id="needChips" class="chips"></div>
+      </div>
+    </section>
+
+    <!-- 数据表 -->
+    <section class="table-section">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th style="width: 18rem;">业务类型</th>
+            <th>应用场景</th>
+            <th>关键广义功能安全需求</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 动态填充 -->
+        </tbody>
+      </table>
+      <div id="emptyState" class="empty hidden">没有匹配的结果</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> 映射演示 | 纯前端 | GitHub Pages 可托管</div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
